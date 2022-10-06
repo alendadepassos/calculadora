@@ -13,19 +13,21 @@
 
         <section class="container">
             <h2>Calculadora LP</h2>
-            <form>
+            <form id="formulario">
                 <p>
                     1-Adição
                     2-Subtração 
                     3-Multiplicação 
                     4-Divisão 
                 </p>
-                <label>Escolha a Operação Desejada</label>
+                <label for="operacao">Escolha a Operação Desejada</label>
                 <input type="text" name="operacao" id="operacao">
                 <button type="submit">Escolher</button>
             </form>
-        </section>
 
+            <div id="resultado"></div>
+
+        </section>
 
         <script src="assets/js/main.js"></script>
     </body>
