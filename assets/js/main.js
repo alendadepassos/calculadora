@@ -24,26 +24,32 @@ form.addEventListener('submit', function(e){
         let operacaonome = 'Adição';
         const msg = `Sua operação é ${operacaonome}`;
         setResultado(msg, true);
-        setOperacao(operacao);
+        revelarInputs();
+        capturavalores();
+        valorresultado = valor1 + valor2;
+        revelarresultado();
     } 
 
     if(operacao==2) {
         let operacaonome = 'Subtração'; 
         const msg = `Sua operação é ${operacaonome}`;
         setResultado(msg, true);
-        setOperacao(operacao);
+        revelarInputs();
+
     } 
     if(operacao==3) {
         let operacaonome = 'Multiplicação'; 
         const msg = `Sua operação é ${operacaonome}`;
         setResultado(msg, true);
-        setOperacao(operacao);
+        revelarInputs();
+
     }  
     if(operacao==4) {
         let operacaonome = 'Divisão'; 
         const msg = `Sua operação é ${operacaonome}`;
         setResultado(msg, true);
-        setOperacao(operacao);
+        revelarInputs();
+
     }  
     
 })
@@ -51,25 +57,6 @@ form.addEventListener('submit', function(e){
 function criaP(){
     const p = document.createElement('p');
     return p;
-}
-
-function criaInputs(){
-    const divAtual = document.getElementById("operacaocampos");
-    const ParagrafoNovo = document.createTextNode("Digite os Valores");
-    const Input1 = document.createElement('input');
-    const Input2 = document.createElement('input');
-    const btnconfirma = document.createElement('button');
-    const btntexto = document.createTextNode("Confirmar");
-    btnconfirma.appendChild(btntexto);
-    divAtual.appendChild(ParagrafoNovo);
-    divAtual.appendChild(Input1);
-    divAtual.appendChild(Input2);
-    divAtual.appendChild(btnconfirma);
-}
-
-function setOperacao(operacao){
-    criaInputs();
-   // const Input1 = e.target.querySelector('#operacao');
 }
 
 function setResultado(msg, isValid){
@@ -86,4 +73,29 @@ function setResultado(msg, isValid){
     p.innerHTML = msg;
     resultado.appendChild(p);
 
+}
+
+//revela campos para inserir os valores
+const revelar = document.querySelector('#operacaocampos')
+function revelarInputs(){
+    revelar.style.display = 'block'
+}
+
+function capturavalores (){
+    const valor1 = document.querySelector('#valor1');
+    const valor2 = document.querySelector('#valor2');
+    let valorresultado;
+    return valor1, valor2, valorresultado;
+}
+
+const revelarresultado = document.querySelector('#resultadooperacao')
+function revelarResultado(){
+    revelarresultado.style.display = 'block'
+    
+    const p = criaP();
+
+    p.classList.add('paragrafo-resultado');
+
+    p.innerHTML = valorresultado;
+    revelarresultado.appendChild(p);
 }

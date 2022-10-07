@@ -48,3 +48,11 @@
   .bad {
     background: rgb(255, 150, 150);
   }
+
+  .operacaocampos {
+  display: none;
+}
+
+.resultadooperacao {
+  display: none;
+}
