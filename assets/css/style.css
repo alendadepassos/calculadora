@@ -49,10 +49,6 @@
     background: rgb(255, 150, 150);
   }
 
-  .operacaocampos {
+  .resultadooperacao {
   display: none;
-}
-
-.resultadooperacao {
-  display: none;
-}
+  }

@@ -1,11 +1,15 @@
 const form = document.querySelector('#formulario');
 
-//Recebe e valida a Operação selecionada
 form.addEventListener('submit', function(e){
     e.preventDefault();
     const inputOperacao = e.target.querySelector('#operacao');
+    const input1 = e.target.querySelector('#valor1');
+    const input2 = e.target.querySelector('#valor2');
 
     const operacao = Number(inputOperacao.value);
+    const valor1 = Number(input1.value);
+    const valor2 = Number(input2.value);
+
 
     if(!operacao){
         setResultado('Operação Inválida', false);
@@ -16,43 +20,42 @@ form.addEventListener('submit', function(e){
         setResultado('Operação Inválida', false);
         return;
     }
-    let operacaonome;
-
-//Retorna a Operação selecionada
 
     if(operacao==1) {
         let operacaonome = 'Adição';
         const msg = `Sua operação é ${operacaonome}`;
         setResultado(msg, true);
-        revelarInputs();
-        capturavalores();
-        valorresultado = valor1 + valor2;
-        revelarresultado();
-    } 
+        resultadovalor = valor1+valor2;
+        const msgresultado = `${valor1} + ${valor2} = ${resultadovalor}`;
+        setResultadoConta(msgresultado, true);
+        }
 
     if(operacao==2) {
-        let operacaonome = 'Subtração'; 
+        let operacaonome = 'Subtração';
         const msg = `Sua operação é ${operacaonome}`;
         setResultado(msg, true);
-        revelarInputs();
-
-    } 
-    if(operacao==3) {
-        let operacaonome = 'Multiplicação'; 
-        const msg = `Sua operação é ${operacaonome}`;
-        setResultado(msg, true);
-        revelarInputs();
-
-    }  
-    if(operacao==4) {
-        let operacaonome = 'Divisão'; 
-        const msg = `Sua operação é ${operacaonome}`;
-        setResultado(msg, true);
-        revelarInputs();
-
-    }  
+        resultadovalor = valor1-valor2;
+        const msgresultado = `${valor1} - ${valor2} = ${resultadovalor}`;
+        setResultadoConta(msgresultado, true);
+        }
     
-})
+    if(operacao==3) {
+        let operacaonome = 'Multiplicação';
+        const msg = `Sua operação é ${operacaonome}`;
+        setResultado(msg, true);
+        resultadovalor = valor1*valor2;
+        const msgresultado = `${valor1} x ${valor2} = ${resultadovalor}`;
+        setResultadoConta(msgresultado, true);
+        }
+
+    if(operacao==4) {
+        let operacaonome = 'Divisão';
+        const msg = `Sua operação é ${operacaonome}`;
+        setResultado(msg, true);
+        resultadovalor = valor1/valor2;
+        const msgresultado = `${valor1} / ${valor2} = ${resultadovalor}`;
+        setResultadoConta(msgresultado, true);
+        }
 
 function criaP(){
     const p = document.createElement('p');
@@ -75,27 +78,17 @@ function setResultado(msg, isValid){
 
 }
 
-//revela campos para inserir os valores
-const revelar = document.querySelector('#operacaocampos')
-function revelarInputs(){
-    revelar.style.display = 'block'
-}
-
-function capturavalores (){
-    const valor1 = document.querySelector('#valor1');
-    const valor2 = document.querySelector('#valor2');
-    let valorresultado;
-    return valor1, valor2, valorresultado;
-}
-
-const revelarresultado = document.querySelector('#resultadooperacao')
-function revelarResultado(){
-    revelarresultado.style.display = 'block'
+function setResultadoConta(msgresultado){
+    const resultado = document.querySelector('#resultadooperacao');
+    resultado.innerHTML = '';
     
     const p = criaP();
-
+        
     p.classList.add('paragrafo-resultado');
 
-    p.innerHTML = valorresultado;
-    revelarresultado.appendChild(p);
+    p.innerHTML = msgresultado;
+    resultado.appendChild(p);
+
 }
+
+})

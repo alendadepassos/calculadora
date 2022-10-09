@@ -1,8 +1,9 @@
-# Sample GitLab Project
+# Calculadora - 1.0.0
 
-This sample project shows how a project in GitLab looks for demonstration purposes. It contains issues, merge requests and Markdown files in many branches,
-named and filled with lorem ipsum.
+Finalmente o primeiro release, agora a calculadora está 100% funcional e conta com as 4 operações básicas, ainda faltam muitas melhorias mas esse é um projeto que eu planejo manter e atualizar para que acompanhe meus conhecimentos adquiridos.
 
-You can look around to get an idea how to structure your project and, when done, you can safely delete this project.
+## Patch Notes
+ Adição, Subtração, Multiplicação e Divisão funcionais!
 
-[Learn more about creating GitLab projects.](https://docs.gitlab.com/ee/gitlab-basics/create-project.html)
+### Execução
+- clone o projeto para sua máquina e execute o index.html com a IDE de sua preferencia.
