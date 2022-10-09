@@ -1,7 +1,9 @@
 const form = document.querySelector('#formulario');
 
+//consome formulario html
 form.addEventListener('submit', function(e){
     e.preventDefault();
+    //recebe os valores e operação e atribui para variaveis javascript
     const inputOperacao = e.target.querySelector('#operacao');
     const input1 = e.target.querySelector('#valor1');
     const input2 = e.target.querySelector('#valor2');
@@ -10,7 +12,7 @@ form.addEventListener('submit', function(e){
     const valor1 = Number(input1.value);
     const valor2 = Number(input2.value);
 
-
+    //valida a operação
     if(!operacao){
         setResultado('Operação Inválida', false);
         return;
@@ -20,7 +22,7 @@ form.addEventListener('submit', function(e){
         setResultado('Operação Inválida', false);
         return;
     }
-
+    //define a operação e a executa
     if(operacao==1) {
         let operacaonome = 'Adição';
         const msg = `Sua operação é ${operacaonome}`;
@@ -57,11 +59,13 @@ form.addEventListener('submit', function(e){
         setResultadoConta(msgresultado, true);
         }
 
+//cria paragrafo para a inclusão do resultado
 function criaP(){
     const p = document.createElement('p');
     return p;
 }
 
+//recebe a validação da operação e introduz em novo paragrafo
 function setResultado(msg, isValid){
     const resultado = document.querySelector('#resultado');
     resultado.innerHTML = '';
@@ -78,6 +82,7 @@ function setResultado(msg, isValid){
 
 }
 
+//recebe o resultado da operação e introduz em novo paragrafo
 function setResultadoConta(msgresultado){
     const resultado = document.querySelector('#resultadooperacao');
     resultado.innerHTML = '';
